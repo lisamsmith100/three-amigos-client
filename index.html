@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Who Wants To Know?</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Do not add `link` tags unless you know what you are doing -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Do not add `script` tags unless you know what you are doing -->
+    <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+    <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"> -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+  <a id="top"></a>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header show-when-logged-in">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+
+                </button>
+                <a class="navbar-brand topnav intro-message" href="#top">Back to Top</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="sign-up-modal" data-toggle="modal" data-target="#sign-up-modal" class="sign-up" id="sign-up-navbar">Sign Up</a>
+                    </li>
+                    <li>
+                      <a href="sign-in-modal" data-toggle="modal" data-target="#sign-in-modal" class="sign-in" id="sign-in-navbar">Sign In</a>
+                    </li>
+                    <li>
+                      <a href="sign-out-modal" data-toggle="modal" data-target="#sign-out-modal" class="sign-out" id="sign-out-navbar">Sign Out</a>
+                    </li>
+                    <li>
+                      <a href="change-password-modal" data-toggle="modal" data-target="#change-password-modal" class="change-password" id="change-password-navbar">Change Password</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!-- Header -->
+    <a name="about"></a>
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>Who Wants To Know?</h1>
+                        <h3>Create Your Own Survey</h3>
+                        <hr class="intro-divider">
+                        <ul class="list-inline intro-action-buttons">
+                          <li>
+                            <a href="#my-surveys-content" class="btn btn-default btn-lg logged-in-display"><i class="fa my-surveys fa-fw"></i>My Surveys</a>
+                          </li>
+                          <li>
+                            <a href="#create-survey-content" class="btn btn-default btn-lg logged-in-display"><i class="fa create-survey fa-fw"></i>Create A Survey</a>
+                          </li>
+                          <li>
+                            <a href="#take-survey-content" class="btn btn-default btn-lg logged-in-display"><i class="fa take-survey fa-fw"></i>Take Survey</a>
+                          </li>
+                          <li>
+                              <a href="#survey-dashboard-content" class="btn btn-default btn-lg logged-in-display"><i class="fa survey-dashboard fa-fw"></i>My Dashboard</a>
+                          </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.intro-header -->
+
+    <!-- Page Content -->
+
+<a name="my-surveys-content" id="my-surveys-content"></a>
+  <div class="content-section-a show-when-logged-in">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-5 col-sm-6">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">My Surveys</h2>
+                <p class="lead">To display a survey’s dashboard, click on the title of your survey.<br/>You can see how many times a question has been answered and the average score per question.</p>
+                <div id="userSurveys" class="userSurveys lead"> </div>
+                  <div id='content'>
+                  </div>
+                  <div class="clearfix"></div>
+
+                  <!-- <h2 class="section-heading">My Surveys</h2>
+                  <a href="content-my-surveys" data-target="#content-my-surveys" class="my-surveys" id="my-surveys">Click Here To List Your Surveys</a>
+                  <form id="get-surveys">
+                    <fieldset>
+                    <input type="submit" name="submit" value="Get Surveys">
+                    </fieldset>
+                  </form><br>
+                  <form id="update-survey">
+                  </form>
+                  <fieldset>
+                  <div class="input-group">
+                    <span class="input-group-addon"  id="name-survey"></span>
+                    <input type="text" name="survey[name]" class="form-control" placeholder="Survey Name" aria-describedby="basic-addon1">
+                    <span class="input-group-addon" id="survey-id"></span>
+                    <input type="text" name="survey[id]" class="form-control" placeholder="Survey ID" aria-describedby="basic-addon1">
+                  </div>
+                    <input type="submit" name="submit" value="Update Survey">
+                  <div class="input-group">
+                    <span class="input-group-addon"  id="survey-id"></span>
+                    <input type="text" name="deleteId[id]" class="form-control" placeholder="Survey ID" aria-describedby="basic-addon1">
+                  </div>
+                    <input type="submit" name="submit" value="Delete Survey">
+                  </fieldset> -->
+
+              </div>
+              <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                  <img class="img-responsive" src="https://cloud.githubusercontent.com/assets/26127720/26209013/9c5121fe-3bb9-11e7-89d4-9d521b29108e.jpg" alt="">
+              </div>
+              <div id="content-my-surveys" class="survey-list">
+          </div>
+      </div>
+      <!-- /.container -->
+  </div>
+</div>
+    <!-- /.content-section-a -->
+<a  name="create-survey-content" id="create-survey-content"></a>
+  <div class="content-section-b show-when-logged-in">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+            <hr class="section-heading-spacer">
+            <div class="clearfix"></div>
+            <h2 class="section-heading">Create A Survey</h2>
+            <p class="lead">Design your own Survey.<br>Create a survey name and your own questions.  The answers to your questions must range from 1=low to 5=high</p>
+            <form id="create-survey-form">
+            <fieldset>
+            <div class="input-group">
+              <span class="input-group-addon"  id="survey-name"></span>
+              <input type="text" name="surveySchema[name]" id='survey-create-input' class="form-control" placeholder="Survey Name" aria-describedby="basic-addon1">
+            </div>
+            <input type="submit" name="submit"  value="Create Survey">
+            </fieldset>
+            <br>
+            </form>
+            <!-- <a href="create-survey" data-toggle="modal" data-target="#create-survey" class="create-survey" id="create-survey-href">Click Here To Create Survey</a> -->
+        </div>
+        <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+            <img class="img-responsive" src="https://cloud.githubusercontent.com/assets/26127720/26208995/878ab1fe-3bb9-11e7-8ed0-607e219691a9.jpg" alt="">
+        </div>
+        <div id="content-create-survey" class="content-create-survey">
+      </div>
+    </div>
+      <!-- /.container -->
+  </div>
+</div>
+    <!-- /.content-section-b -->
+<a  name="take-survey-content" id="take-survey-content"></a>
+    <div class="content-section-a show-when-logged-in">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                  <hr class="section-heading-spacer">
+                  <div class="clearfix"></div>
+                  <h2 class="section-heading">Take A Survey</h2>
+                  <!-- All Surveys -->
+                    <div id="allTakeSurveys" class="allTakeSurveys"></div>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="https://cloud.githubusercontent.com/assets/26127720/26208822/0f30b03c-3bb9-11e7-9f59-5fe710170e61.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </div>
+
+<a  name="survey-dashboard-content" id="survey-dashboard"></a>
+  <div class="content-section-b show-when-logged-in">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+        <hr class="section-heading-spacer">
+        <div class="clearfix"></div>
+        <h2 class="section-heading">Survey Dashboard</h2>
+        <p class="lead">To display a survey's information, go to My Survey,<br/>click on the title of your survey.<br/>You can see your average score per question.</p>
+
+        <p class="lead dashboard-content"> </p>
+      </div>
+      <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+        <img class="img-responsive" src="https://cloud.githubusercontent.com/assets/26127720/26208622/8a407bbe-3bb8-11e7-80ea-d9957bde9941.jpg" alt="">
+      </div>
+      <div id="content-survey-dashboard" class="content-survey-dashboard">
+      </div>
+    </div>
+      <!-- /.container -->
+    </div>
+  </div>
+    <!-- /.banner -->
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="https://github.com/threes-amigos/three-amigos-client">Three Amigos Github Repo - Express</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/threes-amigos/three-amigos-express-api">Three Amigos Github Repo - MongoDB</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                    </ul>
+                    <p class="copyright text-muted small">Copyright &copy; Threes Amigos 2017. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+<!-- Modals -->
+<!-- Sign Up Modal -->
+<div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="Sign Up">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <form id="sign-up">
+      <fieldset>
+        <div class="input-group">
+          <span class="input-group-addon"  id="emailAddress"></span>
+          <input type="text" name="credentials[email]" class="form-control" placeholder="Email Address" aria-describedby="basic-addon1">
+          <span class="input-group-addon" id="passWord"></span>
+          <input type="password" name="credentials[password]" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+          <span class="input-group-addon" id="basic-addon1"></span>
+          <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Password Confirmation" aria-describedby="basic-addon1">
+        </div>
+          <input type="submit" name="submit" value="Sign up">
+      </fieldset>
+      </form>
+  </div>
+</div>
+</div>
+<!-- Sign In Modal -->
+<div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="Sign In">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <form id="sign-in">
+          <fieldset>
+          <div class="input-group">
+            <span class="input-group-addon"  id="emailAddress"></span>
+            <input type="text" name="credentials[email]" class="form-control" placeholder="Email Address" aria-describedby="basic-addon1">
+            <span class="input-group-addon" id="passWord"></span>
+            <input type="password" name="credentials[password]" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+          </div>
+            <input type="submit" name="submit" value="Sign In">
+          </fieldset>
+          </form>
+        </div>
+    </div>
+</div>
+<!-- Sign Out Modal -->
+<div class="modal fade" id="sign-out-modal" tabindex="-1" role="dialog" aria-labelledby="Sign Out">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <form id="sign-out">
+            <fieldset>
+            <input type="submit" name="submit" value="Sign Out">
+            </fieldset>
+          </form>
+        </div>
+    </div>
+</div>
+<!-- Change Password Modal -->
+<div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="Change Password">
+  <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <form id="change-password">
+          <fieldset>
+            <div class="input-group" id="limit">
+              <span class="input-group-addon"  id="old-password"></span>
+              <input type="password" name="passwords[old]" class="form-control" placeholder="Old Password" aria-describedby="basic-addon1">
+              <span class="input-group-addon" id="passWord"></span>
+              <input type="password" name="passwords[new]" class="form-control" placeholder="New Password" aria-describedby="basic-addon1">
+            </div>
+            <input type="submit" name="submit" value="Change Password">
+          </fieldset>
+        </form>
+      </div>
+  </div>
+</div>
+<!-- Create Questions Modal -->
+<div class="modal fade" id="create-questions-modal" tabindex="-1" role="dialog" aria-labelledby="Create Survey">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form class='create-questions-form' id="create-questions-form">
+              <fieldset>
+                <span class="input-group-addon"  id="survey-name"></span>
+                <!-- <input type="text" name="surveySchema[name]" class="form-control" placeholder="Survey Name" aria-describedby="basic-addon1"> -->
+                <h1 id='question-form-survey-name'></h1>
+                <input type="text" name="questionSchema[name1]" class="form-control" placeholder="Question 1" aria-describedby="basic-addon1">
+                <input type="text" name="questionSchema[name2]" class="form-control" placeholder="Question 2" aria-describedby="basic-addon1">
+                <input type="text" name="questionSchema[name3]" class="form-control" placeholder="Question 3" aria-describedby="basic-addon1">
+                <input type="submit" id="create-survey-submit-modal" name="submit" value="Create Survey">
+              </fieldset>
+          </form>
+      </div>
+  </div>
+</div>
+<!-- Take Survey Modal -->
+<div class="modal fade" id="take-survey-modal" tabindex="-1" role="dialog" aria-labelledby="Take Survey">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form class='take-survey-form' id="take-survey-form">
+              <fieldset>
+                <span class="input-group-addon"  id="survey-name"></span>
+                <div class="survey-name-modal">Survey Name:  Survey Name Goes Here</div>
+                <div class="question1-modal">1. Question 1 Goes Here</div>
+                <input type="text" id="question-answer-1" name="questionSchema[answer]" class="form-control" placeholder="Answer to Question 1" aria-describedby="basic-addon1">
+                <div class="question2 -modal">2. Question 2 Goes Here</div>
+                <input type="text" id="question-answer-2" name="questionSchema[answer]" class="form-control" placeholder="Answer to Question 2" aria-describedby="basic-addon1">
+                <div class="question3-modal">3. Question 3 Goes Here</div>
+                <input type="text" id="question-answer-3" name="questionSchema[answer]" class="form-control" placeholder="Answer to Question 3" aria-describedby="basic-addon1">
+                <input type="submit" id="take-survey-submit-modal" name="submit" value="Submit Answers">
+              </fieldset>
+          </form>
+      </div>
+  </div>
+</div>
+<!-- Info Modal -->
+<div id="infoModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"></h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p id=infoModalText>Replace this text</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+       <!-- Take Survey Modal -->
+         <div id="surveyTakeModal" class="modal fade" role="dialog">
+           <div class="modal-dialog">
+             <!-- Modal content-->
+             <div class="modal-content">
+               <div class="modal-header">
+                 <h4 class="modal-title">Take Survey</h4>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+
+               </div>
+               <div class="modal-body">
+                 <p id=infoModalText></p>
+                 <p id=surveyNameRequired></p>
+                 <form id="do-survey-form">
+                 <fieldset>
+                   <div class="input-group">
+                     <div class="col-sm-10">
+                       <div id="takeSurvey" class="takeSurvey"> </div>
+                     </div>
+                   </div>
+                     <br>
+                     <!-- <input type="submit" name="submit" value="Sumbit Survey"> -->
+                 </fieldset>
+                 <br>
+                 </form>
+
+               </div>
+               <div class="modal-footer">
+                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               </div>
+             </div>
+           </div>
+         </div>
+</body>
+</html>
